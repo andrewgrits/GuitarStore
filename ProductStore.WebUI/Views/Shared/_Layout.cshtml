@@ -6,15 +6,11 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
-    <link href="~/Content/ImagesStyles.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="~/Scripts/image.maximize.js" type="text/javascript"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div class="navbar navbar-inverse" role="navigation">
-        @*@Html.ActionLink("Metallica - гитарный магазин №1 в Молдове!", "List", "Guitar", null, new { @class = "navbar-brand" })*@
-        <img src="~/Content/Images/header.jpg" class="navbar-brand"/>
+        @Html.ActionLink("Metallica - гитарный магазин №1 в Молдове!", "List", "Guitar", null, new { @class = "navbar-brand" })
         @Html.Action("Summary", "Cart")
     </div>
     <div class="container">
