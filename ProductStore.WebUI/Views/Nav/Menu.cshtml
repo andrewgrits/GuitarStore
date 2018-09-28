@@ -1,0 +1,19 @@
+﻿@using ProductStore.WebUI.Models
+@model NavViewModel
+
+@Html.ActionLink("Домой", "List", "Guitar", null,
+    new { @class = "btn btn-block btn-default btn-lg"})
+
+@foreach (var link in Model.Categories)
+{
+    @Html.RouteLink(link, new
+        {
+            controller = "Guitar",
+            action = "List",
+            category = link,
+            page = 1
+        }, new
+        {
+        @class = "btn btn-block btn-default btn-lg" + (link == Model.CurrentCategory ? " btn-primary" : "")
+        })
+}

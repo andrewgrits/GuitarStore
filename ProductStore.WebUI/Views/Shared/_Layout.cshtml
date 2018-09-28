@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        @Html.ActionLink("Metallica - гитарный магазин №1 в Молдове!", "List", "Guitar", null, new { @class = "navbar-brand" })
+        @Html.Action("Summary", "Cart")
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="categories" class="col-md-3">
+                @Html.Action("Menu", "Nav")
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

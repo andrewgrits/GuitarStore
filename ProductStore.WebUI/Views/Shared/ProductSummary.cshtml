@@ -1,0 +1,41 @@
+﻿@model ProductStore.Domain.Entities.Guitar
+
+<div class="well container">
+    <div class="row">
+        <div class="col-md-3">
+            @if (Model.ImageData != null)
+            {
+                <div class="pull-left" style="margin-right: 10px">
+                    <img class="img-thumbnail" width="150" height="150"
+                         src="@Url.Action("GetImage", "Guitar",
+                     new { Model.Id })" />
+                </div>
+            }
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <h3>
+                    <strong>@Model.Name</strong>
+                </h3>
+            </div>
+            <div class="row">
+                <span class="lead">@Model.Description</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <h2>
+                    <span class="pull-right label label-primary space">@Model.Price.ToString("# леев")</span>
+                </h2>
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    <div class="pull-right">
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Добавить в корзину" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model ProductStore.Domain.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "ProductStore: форма заказа";
+}
+
+<h2 class="text-white">Оформить заказ сейчас</h2>
+<p class="text-white">Пожалуйста, введите ваши контактные данные и мы свяжемся с вами, чтобы отправить товар!</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary();
+    <h3 class="text-white">Данные</h3>
+    <div class="form-group">
+        <label class="text-white">Ваше имя:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control opacity" })
+    </div>
+    <h3 class="text-white">Адрес доставки</h3>
+    foreach (var property in ViewData.ModelMetadata.Properties) {
+        if (property.PropertyName != "Name") {
+            <div class="form-group">
+                <label class="text-white">@(property.DisplayName ?? property.PropertyName)</label>
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control opacity" })
+            </div>
+        }
+    }
+
+    <div class="text-center">
+        <input class="btn btn-success pull-left" type="submit" value="Обработать заказ" />
+    </div>
+}

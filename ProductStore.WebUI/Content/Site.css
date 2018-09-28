@@ -1,0 +1,36 @@
+﻿body {
+    padding-bottom: 20px;
+    background: url(../Content/Images/background-image.png);
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-outline {
+    text-shadow: black 1px 1px 0, black -1px -1px 0, black -1px 1px 0, black 1px -1px 0;
+}
+
+.opacity {
+    opacity: 0.9;
+}
+
+.space {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}   

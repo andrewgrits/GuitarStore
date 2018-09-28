@@ -1,0 +1,42 @@
+﻿@model ProductStore.WebUI.Models.ChangeAccountDataViewModel
+
+@{
+    ViewBag.Title = "ChangeAccountData";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3>Редактирование логина/пароля администратора</h3>
+    </div>
+
+    @using (Html.BeginForm("ChangeAccountData", "AdminAccount"))
+    {
+        <div class="panel-body">
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                <div class="form-group">
+                    <label>@(property.DisplayName ?? property.PropertyName)</label>
+                    @if (property.PropertyName == "Login")
+                    {
+                        @Html.TextBox(property.PropertyName, null,
+                        new { @class = "form-control" })
+                    }
+                    else
+                    {
+                        @Html.Password(property.PropertyName, null,
+                        new { @class = "form-control" })
+                    }
+                    @Html.ValidationMessage(property.PropertyName)
+                </div>
+            }
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Сохранить" class="btn btn-primary" />
+            @Html.ActionLink("Отменить изменения", "Index", "Admin",null, new
+            {
+                @class = "btn btn-default"
+            })
+        </div>
+    }
+</div>
