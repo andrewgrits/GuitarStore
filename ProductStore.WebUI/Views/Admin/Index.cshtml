@@ -12,7 +12,6 @@
     <div class="panel-body">
         <table class="table table-striped table-condensed table-bordered">
             <tr>
-                <th class="text-right">ID</th>
                 <th>Название</th>
                 <th class="text-right">Цена</th>
                 <th class="text-center">Действия</th>
@@ -20,7 +19,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td class="text-right">@item.Id</td>
+                    <span class="text-right sr-only">@item.Id</span>
                     <td>@Html.ActionLink(item.Name, "Edit", new { item.Id })</td>
                     <td class="text-right">@item.Price.ToString("# леев")</td>
                     <td class="text-center">
