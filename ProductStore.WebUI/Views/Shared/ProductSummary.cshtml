@@ -6,7 +6,8 @@
             @if (Model.ImageData != null)
             {
                 <div class="pull-left" style="margin-right: 10px">
-                    <img class="img-thumbnail" width="150" height="150"
+                    <img class="img-thumbnail minimized" width="150" height="150"
+                         alt="Изображение"
                          src="@Url.Action("GetImage", "Guitar",
                      new { Model.Id })" />
                 </div>
